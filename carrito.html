@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="bg-primary text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="text-left">Carrito de Compras</h1>
+            <div>
+                <a href="index.html" class="text-dark position-relative">
+                    <i class="btn btn-danger">Cerrar</i>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container my-4">
+        <section id="cart">
+            <h2><i class="fas fa-shopping-cart"></i> Carrito de Compras</h2>
+            <ul id="cart-items" class="list-group"></ul>
+            <p>Total: <span id="cart-total"></span></p>
+        </section>
+    </main>
+    
+    <script>
+        // Recuperar los productos del carrito desde localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Función para mostrar los productos en el carrito
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            cart.forEach((product, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+                listItem.textContent = `${product.title} - $${product.price}`;
+                const button = document.createElement('button');
+                button.className = 'btn btn-danger btn-sm';
+                button.textContent = 'Eliminar';
+                button.addEventListener('click', () => {
+                    removeFromCart(index);
+                });
+                listItem.appendChild(button);
+                cartItemsContainer.appendChild(listItem);
+                total += product.price;
+            });
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Función para eliminar un producto del carrito
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCartItems();
+        }
+
+        // Mostrar los productos al cargar la página
+        displayCartItems();
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>

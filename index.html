@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Virtual</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="bg-primary text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="text-left">Fake Store</h1>
+            <div class="d-flex align-items-center">
+                <!-- Navbar con las categorías -->
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle custom-dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Category
+                        </a>
+                        <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="navbarDropdown" id="categoryDropdown">
+                            <a class="dropdown-item custom-dropdown-item" href="#" data-category="all">See All</a>
+                            <a class="dropdown-item custom-dropdown-item" href="#" data-category="electronics">Electronics</a>
+                            <a class="dropdown-item custom-dropdown-item" href="#" data-category="jewelery">Jewelery</a>
+                            <a class="dropdown-item custom-dropdown-item" href="#" data-category="men's clothing">Men's Clothing</a>
+                            <a class="dropdown-item custom-dropdown-item" href="#" data-category="women's clothing">Women's Clothing</a>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Fin del Navbar -->
+                <div>
+                    <a href="carrito.html" id="cart-icon" class="text-dark position-relative ml-3">
+                        <i class="fas fa-shopping-cart fa-2x"></i>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            0
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container my-4">
+        <section id="product-list" class="row"></section>
+        <section id="product-detail" class="hidden"></section>
+        <section id="cart" class="hidden">
+            <h2><i class="fas fa-shopping-cart"></i> Carrito de Compras</h2>
+            <ul id="cart-items" class="list-group"></ul>
+            <p>Total: <span id="cart-total"></span></p>
+        </section>
+    </main>
+    <!-- Importar jQuery, Popper.js y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
