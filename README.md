@@ -1,4 +1,4 @@
-# Proyecto de Práctica: Explorando una API de Tienda Virtual
+# Proyecto: Explorando una API de Tienda Virtual
 
 ## Descripción
 
